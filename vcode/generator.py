@@ -3,18 +3,20 @@ from captcha.image import ImageCaptcha
 import random
 
 # Create a new ImageCaptcha instance.
-img = ImageCaptcha()
+img = ImageCaptcha(width=50)
 
 total = 100
 numbers = []
 
 
 def get_random_number():
-    while True:
-        number = str( random.randint(10000, 99999) )
-        if number not in numbers:
-            numbers.append(number)
-            return number
+    # while True:
+    #     number = str( random.randint(0,9) )
+    #     if number not in numbers:
+    #         numbers.append(number)
+    #         return number
+    return str( random.randint(0,9) )
+
 
 for i in range(total) :
     number = get_random_number()
@@ -23,4 +25,5 @@ for i in range(total) :
     # Display the image
     # image.show()
     # Save the image to a file.
-    image.save(f'samples/{number}.jpg')
+    name = number+'_'+str(random.randint(100000, 999999))
+    image.save(f'/workspace/python/wukong/vcode/samples/{name}.jpg')
